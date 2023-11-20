@@ -66,7 +66,89 @@ This is a comparitive study using two languages:
 
 ## POPL Aspects
 
-> What were the POPL aspects involved in the implementation. NOT theoretical answers. Have pointers to the lines of code and explain the POPL ideas/concepts involved and why they are necessary. I expect 5 to 10 points written on POPL aspects (bullet points, one after another). More the points you have the better it is. While writing the points also write your experience of the difficulties you faced. 
+> What were the POPL aspects involved in the implementation. NOT theoretical answers. Have pointers to the lines of code and explain the POPL ideas/concepts involved and why they are necessary. I expect 5 to 10 points written on POPL aspects (bullet points, one after another). More the points you have the better it is. While writing the points also write your experience of the difficulties you faced.
+
+```rust
+use ndarray::{Array1, Array2, ArrayView1, Ix2};
+```
+
+* **Memory Safety**: The use of `Array1` and `Array2` from the ndarray crate, along with the ownership system and borrowing rules, contributes to memory safety.
+
+<hr>
+
+```rust
+pub struct QCircuit {
+    qubits : usize,
+    size: usize,
+    state: Array1<f64>,
+}
+
+impl QCircuit {
+    pub fn new(num_qubits: usize) -> Self {
+        let qubits = num_qubits;
+        let size = 2_usize.pow(num_qubits as u32);
+        let mut state = Array1::zeros(size);
+        state[[0]] = 1.0; // Set the first element to 1.0
+        QCircuit { qubits, size, state }
+    }
+    
+    pub fn get_state(&self) -> ArrayView1<f64> {
+        self.state.view()
+    }
+```
+
+* **Ownership & Borrowing**: The ownership of the quantum state vector in the QCircuit struct and the borrowing in methods like x_gate where the state is mutated
+
+<hr>
+
+```rust
+pub struct QCircuit {
+    qubits : usize,
+    size: usize,
+    state: Array1<f64>,
+}
+```
+
+* **Zero-Cost Abstractions**: The use of high-level abstractions like Array1 and Array2 for quantum states and gates without incurring significant runtime overhead
+
+<hr>
+
+```rust
+// X gate implementation
+pub fn x_gate(&mut self, target_index: usize) {
+    let pauli_x =  Array2::from_shape_vec(Ix2(2, 2), vec![0.0, 1.0, 1.0, 0.0]).unwrap();
+    let identity_2 = Array2::from_shape_vec(Ix2(2, 2), vec![1.0, 0.0, 0.0, 1.0]).unwrap();
+    let mut x_n;
+    if target_index == 0{
+        x_n = pauli_x.clone();
+        
+    }
+    else {
+        x_n = identity_2.clone();
+    }
+    for index in 1..self.qubits {
+        if index == target_index {
+            x_n = QCircuit::kron(&x_n, &pauli_x);
+        }
+        else {
+            x_n = QCircuit::kron(&x_n, &identity_2);
+        }
+    }
+    
+    self.state = x_n.dot(&self.state);
+}
+```
+
+* **Pattern Matching**: The match keyword is not explicitly used in this code, but the structure of the code, especially in functions like x_gate and z_gate, involves conditional logic that can be seen as a form of pattern matching
+
+<hr>
+
+```rust
+let pauli_x =  Array2::from_shape_vec(Ix2(2, 2), vec![0.0, 1.0, 1.0, 0.0]).unwrap();
+let identity_2 = Array2::from_shape_vec(Ix2(2, 2), vec![1.0, 0.0, 0.0, 1.0]).unwrap();
+```
+
+* **Immutable by default**: Variables like pauli_x, identity_2, etc., are declared as immutable by default, promoting a functional programming style
 
 ## Results
 
