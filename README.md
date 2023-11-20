@@ -15,13 +15,17 @@ In this project, we aim to implement basic quantum computing operations and algo
 
 There are already libraries that implpement our algorithms and gates. But the problem in question is not just making the libraries, but implementing them in such a way that comparisons can be accurate. By creating modules from scratch, we can better ensure that the time complexities and overheads are the same in both versions.
 
+## Executing the Code
+
+*Commands to execute the code here*
+
 ## Software Architecture
 
-> What is the software architecture of your soln? What parts have you reused and what parts have you developed on your own? Draw a figure to explain better. Is it a client-server architecture. Where is the testing component placed (local or remote)? Is there a database involved? etc.
+> What is the software architecture of your soln? What parts have you reused and what parts have you developed on your own? Draw a figure to explain better. Is it a client-server architecture. Where is the testing component placed (local or remote)? Is there a database involved? etc. 
 
 ## POPL Aspects
 
-> What were the POPL aspects involved in the implementation. NOT theoretical answers. Have pointers to the lines of code and explain the POPL ideas/concepts involved and why they are necessary. I expect 5 to 10 points written on POPL aspects (bullet points, one after another). More the points you have the better it is. While writing the points also write your experience of the difficulties you faced.
+> What were the POPL aspects involved in the implementation. NOT theoretical answers. Have pointers to the lines of code and explain the POPL ideas/concepts involved and why they are necessary. I expect 5 to 10 points written on POPL aspects (bullet points, one after another). More the points you have the better it is. While writing the points also write your experience of the difficulties you faced. 
 
 ## Results
 
@@ -30,3 +34,9 @@ There are already libraries that implpement our algorithms and gates. But the pr
 ## Potential for Future Work
 
 > If you were given more time what else would you do. What other POPL aspects might come into play?
+
+- Multi-threading and multiprocessing can be used to improve the execution  time of the algorithm.
+- Future comparative studies can be made against Qiskit modules that implement the same function/algorithm
+- Random measurements can be iintroduced, it refers to measurements made on quantum bits (qubits) that are not predetermined by the program but instead involve some element of randomness, this allows for probabilistic outcomes when measuring the state of a qubit. 
+- Random measurements can be leveraged in certain quantum algorithms, such as those involved in quantum random number generation or optimization problems.
+- Grover's algorithm, Shor's algorithm, bernstein vazirani algorithm are some algorithms that can be implemented at the back of random measurements
