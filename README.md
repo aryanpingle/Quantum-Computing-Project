@@ -28,7 +28,16 @@ There are already libraries that implpement our algorithms and gates. But the pr
 
 ## Software Architecture
 
-> What is the software architecture of your soln? What parts have you reused and what parts have you developed on your own? Draw a figure to explain better. Is it a client-server architecture. Where is the testing component placed (local or remote)? Is there a database involved? etc. 
+> What is the software architecture of your soln? What parts have you reused and what parts have you developed on your own? Draw a figure to explain better. Is it a client-server architecture. Where is the testing component placed (local or remote)? Is there a database involved? etc.
+
+This is a comparitive study using two languages:
+1. Python
+2. Rust
+
+* The code runs completely locally with no servers (no client-server architecture is needed)
+* We used the `numpy` library in Python and the `ndarray` crate in Rust
+* Kronecker product (essential for Quantum computations) was implemented in Rust whereas it was readily available in the `numpy` module in Python
+* `ndarray` package has been used to implement operations in Linear Algebra like matrix multiplication
 
 ## POPL Aspects
 
