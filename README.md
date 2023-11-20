@@ -24,7 +24,32 @@ There are already libraries that implpement our algorithms and gates. But the pr
 
 ## Executing the Code
 
-*Commands to execute the code here*
+To compile and test the rust code:
+
+```bash
+cd code-orig/qcrust
+cargo build
+cargo run
+```
+
+This will run the `main.rs` file which runs tests on the small library we have built. We have also put the test file in the `tests/` directory, but it cannot be run without cargo and its dependencies.
+
+<hr>
+
+To run and test the python code, run:
+
+```bash
+cd code-orig/qcpython
+python TestQC.py
+```
+
+If you don't have numpy installed, you can install it with:
+
+```bash
+pip install numpy
+```
+
+Again, we have put `TestQC.py` in the `tests/` directory, but importing the `PyQC.py` file is left up to the programmer's folder structure.
 
 ## Software Architecture
 
