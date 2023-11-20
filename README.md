@@ -72,6 +72,20 @@ This is a comparitive study using two languages:
 
 > Tests conducted. Dataset used. Benchmarks run. Show graphs. Line graphs, bar graphs, etc. How are you checking/validating that these results align with your initial problem statement. Data-driven proof points that the solution/system is working. Why should I be convinced it is working?
 
+| Gates & Algorithms | Execution Time in Rust | Execution Time in Python |
+|---|---|---|
+| Hadamard Gate | 1.337247838ss | 0.05498323440551758ss |
+| X Gate | 1.426829651ss | 0.04555361270904541ss |
+| C-NOT Gate | 2.745869783ss | 0.10531795024871826ss |
+| Z gate | 1.333971906ss | 0.053670501708984374ss |
+| Deutsch Jozsa Algorithm | 0.006171026ss | 0.003129434585571289ss |
+| 10 Qbit GHZ State | 26.087039155ss | 1.0489354133605957ss |
+
+The results obtained however are contradictory to the assumptions made in the initial stages of the project. <br>
+The code was micro-profiled and it was observed that the pyhton code performed significantly better owing to numpy. <br>
+Numpy has some of its implementations based on cython, a C-Extension for python that's well optimized compared to our implementation in Rust. <br>
+What is interesting about the results however is the execution times for Deutsch-Jozsa algorithm, here both the Python and Rust implementations perform similarly, this warrants further investigation.
+
 ## Potential for Future Work
 
 > If you were given more time what else would you do. What other POPL aspects might come into play?
