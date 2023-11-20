@@ -1,5 +1,12 @@
 # Comparative Study of Quantum Computing Tasks in Rust & Python
 
+| Name of member | BITS ID | Email |
+|---|---|---|
+| Aryan Pingle | 2020B3A70362G | f20200362@goa.bits-pilani.ac.in |
+| Aditya Dubey | 2020B5A70627G | f20200627@goa.bits-pilani.ac.in |
+| Subrahmanyam Mantha | 2020B5A70502G | f20200502@goa.bits-pilani.ac.in |
+| Aditya Bhat | 2020B5A72045G | f20202045@goa.bits-pilani.ac.in |
+
 ## Problem Statement
 
 In this project, we aim to implement basic quantum computing operations and algorithms in Rust. We'll leverage Rust's robust memory management principles to ensure code reliability and safety. Our primary focus will be a comparative analysis, with a strong emphasis on speed, highlighting Rust's performance advantages over Python. This project serves as a valuable case study for the adoption of Rust in quantum computing.
